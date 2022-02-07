@@ -1,0 +1,62 @@
+{% extends "structure.html" %}
+
+{% block main%}
+
+<div>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>
+                <h1>CSV Generator</h1>
+            </legend>
+
+            <label>
+                <strong>Enter The Name You Wish To Title The CSV File</strong>
+                <br/>
+                <br/>
+                <input type="text" name="db_table" size="30">
+            </label>
+                <br/>
+                <br/>
+            <label>
+                <strong>Enter The Amount of Records You Wish To Generate</strong>
+                <br/>
+                <br/>
+                <input type="text" name="record_count" value="{{ placeholder }}" size="30">
+            </label>
+            <br/>
+            <br/>
+            <div>
+                <input type="file" name="file">
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <input type="submit" value="Submit">
+                <button type="reset" value="Cancel">Cancel</button>
+            </div>
+            <br/>
+            {{ message }}
+        </fieldset>
+    </form>
+</div>
+
+{% endblock main%}
+
+{% block div %}
+    <h1>Last File Generated/Uploaded</h1>
+    <table class="table">
+        <thead class="thead-dark" style="color: aliceblue">
+            <tr>
+                <th>ID Number</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Initials</th>
+                <th>Age</th>
+                <th>Date Of Birth</th>
+            </tr>
+        </thead>
+        <tbody style="color: aliceblue">
+            {{ table_bod | safe }}
+        </tbody>
+    </table>
+{% endblock div %}
